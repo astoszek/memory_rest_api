@@ -1,6 +1,5 @@
 from flask import jsonify, request
 
-
 from memoryapp import app
 from memoryapp.repository import get_categories, create_category, delete_category
 

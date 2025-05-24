@@ -19,7 +19,7 @@ def add_card(category_id):
     return jsonify(create_card(category_id, word, definition)), 201
 
 
-@app.route('/categories/<int:category_id>/cards/<int: card_id>', methods=['DELETE'])
+@app.route('/categories/<int:category_id>/cards/<int:card_id>', methods=['DELETE'])
 def delete_card(category_id: int, card_id: int):
     remove_card(category_id, card_id)
     return '', 204
