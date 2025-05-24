@@ -36,3 +36,13 @@ def create_card(category_id: int, word: str, definition: str) -> Card:
     db.session.commit()
 
     return card
+
+
+def remove_card(category_id: int, card_id: int):
+    card = Card.query.filter_by(category_id=category_id, card_id=card_id).first()
+
+    if card:
+        db.session.delete(card)
+        db.session.commit()
+
+        return card
