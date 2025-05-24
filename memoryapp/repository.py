@@ -22,6 +22,17 @@ def delete_category(category_id: int):
         db.session.delete(category)
         db.session.commit()
 
+
 def get_cards(category_id: int):
     db.get_or_404(Category, category_id)
     return Card.query.filter_by(category_id=category_id).all()
+
+
+def create_card(category_id: int, word: str, definition: str) -> Card:
+    db.get_or_404(Category, category_id)
+
+    card = Card(category_id=category_id, word=word, definition=definition)
+    db.session.add(card)
+    db.session.commit()
+
+    return card
