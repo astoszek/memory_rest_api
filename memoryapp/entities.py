@@ -24,4 +24,4 @@ class Card(db.Model):
     word: Mapped[str]
     definition: Mapped[str]
     card_id: Mapped[int] = mapped_column(primary_key=True)
-    category_id: Mapped[int] = mapped_column(ForeignKey(Category.category_id, ondelete='CASCADE'), nullable=False)
+    category_id: Mapped[int] = mapped_column(ForeignKey(Category.category_id, ondelete='CASCADE'), nullable=True)
