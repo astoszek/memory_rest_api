@@ -2,7 +2,7 @@ from flask import jsonify, request
 
 
 from memoryapp import app
-from memoryapp.repository import get_categories, create_category
+from memoryapp.repository import get_categories, create_category, delete_category
 
 
 @app.route('/categories', methods=['GET'])
@@ -16,3 +16,10 @@ def add_category():
     category_name = r['category_name']
 
     return jsonify(create_category(category_name)), 201
+
+
+@app.route('/categories/<int:category_id>', methods=['DELETE'])
+def remove_category(category_id):
+    delete_category(category_id)
+
+    return '', 204
