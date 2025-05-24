@@ -1,0 +1,17 @@
+meta {
+  name: Tworzenie kategorii
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:5000/categories
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "category_name": "Czasowniki"
+  }
+}
